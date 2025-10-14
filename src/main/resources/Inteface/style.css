@@ -1,0 +1,128 @@
+/* style.css */
+
+/* Estilo Base para el Panel (Fondo Oscuro/Contexto) */
+.root {
+    -fx-background-color: transparent;
+}
+
+/* Estilo para todos los TextField (Nombre y Apellidos) */
+.text-field {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-text-fill: #440000;
+    -fx-prompt-text-fill: #440000;
+    -fx-font-size: 13pt;
+    -fx-font-family: "Consolas Bold";
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0);
+    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
+}
+
+.text-field:focused {
+    -fx-border-color: #440000;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.8), 10, 0.6, 0, 0);
+    -fx-background-color: rgba(30, 0, 0, 0.9);
+}
+
+/* Estilos para el ComboBox (Curso) */
+.combo-box {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-size: 13pt;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0);
+    -fx-cursor: hand;
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #440000;
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #440000;
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: rgba(0, 0, 0, 0.9);
+    -fx-border-color: #440000;
+    -fx-border-width: 1px;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: rgba(68, 0, 0, 0.3);
+    -fx-text-fill: #440000;
+}
+
+/* Estilos para el Button (Botón de Acción - Peligro) */
+.button {
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-text-fill: #440000;
+    -fx-font-weight: normal;
+    -fx-font-size: 14pt;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.3), 5, 0.3, 0, 0);
+    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
+}
+
+.button:hover {
+    -fx-background-color: rgba(68, 0, 0, 0.8);
+    -fx-border-color: #440000;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.7), 15, 0.7, 0, 0);
+}
+
+/* Color base para todo el neón (igual que el título) */
+.neon-red {
+    -fx-text-fill: #440000;
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Consolas Bold";
+    -fx-font-size: 13pt;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.8), 10, 0.7, 0, 0);
+}
+
+.neon-red-dim {
+    -fx-text-fill: #440000;
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #440000;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.2), 5, 0.1, 0, 0);
+}
+
+/* TextField y ComboBox */
+.text-field, .combo-box {
+    -fx-text-fill: #440000;
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Consolas Bold";
+}
+
+/* Botón */
+.button {
+    -fx-text-fill: #440000;
+    -fx-background-color: rgba(0, 0, 0, 0.6);
+    -fx-border-color: #440000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Consolas Bold";
+    -fx-font-size: 14pt;
+    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.5), 8, 0.5, 0, 0);
+    -fx-cursor: hand;
+}
+
+/* Animación de parpadeo para el título */
+.title {
+    -fx-text-fill: #440000;
+    -fx-animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { -fx-text-fill: rgba(68, 0, 0, 0.3); }
+}

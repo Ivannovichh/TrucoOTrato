@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane
+        maxHeight="-Infinity"
+        maxWidth="-Infinity"
+        minHeight="-Infinity"
+        minWidth="-Infinity"
+        prefHeight="383.0"
+        prefWidth="569.0"
+        stylesheets="@style.css"
+        xmlns="http://javafx.com/javafx/25"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:controller="Inteface.ControladorFormulario">
+
+    <children>
+
+        <!-- Fondo -->
+        <ImageView fitHeight="383.0" fitWidth="569.0" layoutX="0.0" layoutY="0.0" preserveRatio="false">
+            <image>
+                <Image url="@fondo.gif" />
+            </image>
+        </ImageView>
+
+        <!-- Campo de nombre -->
+        <TextField
+                fx:id="nombreField"
+                layoutX="200.0"
+                layoutY="130.0"
+                prefHeight="35.0"
+                prefWidth="170.0"
+                promptText="Nombre" />
+
+        <!-- Campo de apellidos -->
+        <TextField
+                fx:id="apellidosField"
+                layoutX="200.0"
+                layoutY="175.0"
+                prefHeight="35.0"
+                prefWidth="170.0"
+                promptText="Apellidos" />
+
+        <!-- ComboBox del curso (un poco más cerca de los TextFields) -->
+        <ComboBox
+                fx:id="cursoComboBox"
+                layoutX="200.0"
+                layoutY="220.0"
+                prefHeight="28.0"
+                prefWidth="170.0"
+                promptText="Curso">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="DAM1" />
+                    <String fx:value="DAM2" />
+                    <String fx:value="DAW1" />
+                    <String fx:value="DAW2" />
+                    <String fx:value="SMR1" />
+                    <String fx:value="SMR2" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <!-- Botón (separado hacia abajo) -->
+        <Button
+                fx:id="boton"
+                layoutX="200.0"
+                layoutY="270.0"
+                mnemonicParsing="false"
+                prefHeight="28.0"
+                prefWidth="170.0"
+                text="ENVIAR" />
+
+        <!-- Título principal -->
+        <Label
+                fx:id="titulo"
+                alignment="CENTER"
+                layoutX="61.0"
+                layoutY="50.0"
+                prefHeight="48.0"
+                prefWidth="446.0"
+                text="TUNEL DEL TERROR">
+            <font>
+                <Font name="Consolas Bold" size="40.0" />
+            </font>
+            <textFill>
+                <RadialGradient
+                        centerX="0.5"
+                        centerY="0.49"
+                        cycleMethod="REFLECT"
+                        focusAngle="9.46"
+                        focusDistance="-0.18"
+                        proportional="false"
+                        radius="0.9">
+                    <stops>
+                        <Stop>
+                            <color><Color red="1.0" /></color>
+                        </Stop>
+                        <Stop offset="1.0">
+                            <color><Color red="1.0" green="1.0" blue="1.0" /></color>
+                        </Stop>
+                    </stops>
+                </RadialGradient>
+            </textFill>
+        </Label>
+
+    </children>
+</Pane>
