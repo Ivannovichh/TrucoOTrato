@@ -14,7 +14,6 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 550, 420);
         stage.setTitle("Tunel del Terror");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 }

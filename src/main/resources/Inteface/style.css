@@ -5,22 +5,54 @@
     -fx-background-color: transparent;
 }
 
+/* Estilo para el título con efecto neón y parpadeo */
+.title {
+    -fx-text-fill: #FF0000;
+    -fx-font-size: 24pt;
+    -fx-font-family: "Consolas Bold";
+    -fx-effect: dropshadow(gaussian, rgba(255, 0, 0, 0.8), 5, 0.7, 0, 0);
+    -fx-border-color: #FF0000;
+    -fx-border-width: 2px;
+    -fx-border-insets: -2px;
+    -fx-animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { -fx-text-fill: rgba(255, 0, 0, 0.3); }
+}
+
 /* Estilo para todos los TextField (Nombre y Apellidos) */
 .text-field {
+    /* Fondo semi-transparente muy oscuro */
     -fx-background-color: rgba(0, 0, 0, 0.7);
+
+    /* Borde rojo oscuro, como sangre seca */
     -fx-border-color: #440000;
     -fx-border-width: 2px;
-    -fx-text-fill: #440000;
-    -fx-prompt-text-fill: #440000;
+    /* Texto que el usuario escribe, rojo apagado */
+    -fx-text-fill: #a04040;
+
+    /* Texto de sugerencia (prompt text) en rojo oscuro */
+    -fx-prompt-text-fill: #8b0000;
+
+    /* Fuente más pequeña */
     -fx-font-size: 13pt;
     -fx-font-family: "Consolas Bold";
+
+    /* Sombra inicial reducida */
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0);
     -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
 }
 
+/* Estilo cuando un TextField está ENFOCADO (Focus) - Resplandor tenue y sutil */
 .text-field:focused {
-    -fx-border-color: #440000;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.8), 10, 0.6, 0, 0);
+    /* Borde rojo sangre, no neón */
+    -fx-border-color: #8b0000;
+
+    /* Efecto de Iluminación REDUCIDO y menos brillante */
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 0, 0.8), 10, 0.6, 0, 0);
+
+    /* Fondo más oscuro al enfocar */
     -fx-background-color: rgba(30, 0, 0, 0.9);
 }
 
@@ -35,70 +67,89 @@
     -fx-cursor: hand;
 }
 
+/* CAMBIO: Aplicar el color a la flecha del ComboBox y al texto seleccionado */
 .combo-box .arrow-button .arrow {
-    -fx-background-color: #440000;
+    -fx-background-color: #a04040;
 }
 
+/* El control interno (Button) y celdas del ComboBox */
 .combo-box .list-cell {
-    -fx-text-fill: #440000;
+    /* Texto de los elementos en la lista desplegable */
+    -fx-text-fill: #a04040;
     -fx-background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* La lista desplegable del ComboBox */
 .combo-box-popup .list-view {
     -fx-background-color: rgba(0, 0, 0, 0.9);
-    -fx-border-color: #440000;
+    -fx-border-color: #8b0000;
     -fx-border-width: 1px;
 }
 
+/* Elementos de la lista del ComboBox al pasar el ratón */
 .combo-box-popup .list-view .list-cell:hover {
-    -fx-background-color: rgba(68, 0, 0, 0.3);
-    -fx-text-fill: #440000;
+    -fx-background-color: rgba(139, 0, 0, 0.3);
+    /* Mantener el texto blanco al hacer hover para contraste */
+    -fx-text-fill: white;
 }
 
 /* Estilos para el Button (Botón de Acción - Peligro) */
 .button {
-    -fx-background-color: rgba(0, 0, 0, 0.6);
-    -fx-border-color: #440000;
+    /* Fondo semi-transparente rojo muy oscuro */
+    -fx-background-color: rgba(30, 0, 0, 0.6);
+
+    /* Borde rojo opaco */
+    -fx-border-color: #8b0000;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
-    -fx-text-fill: #440000;
+
+    /* CAMBIO: Estilo del Texto del botón en color rojo apagado */
+    -fx-text-fill: #a04040;
     -fx-font-weight: normal;
     -fx-font-size: 14pt;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.3), 5, 0.3, 0, 0);
+
+    /* Resplandor inicial muy leve */
+    -fx-effect: dropshadow(gaussian, rgba(139, 0, 0, 0.3), 5, 0.3, 0, 0);
+
     -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
 }
 
+/* Efecto al pasar el ratón (Hover) - Un cambio sutil */
 .button:hover {
-    -fx-background-color: rgba(68, 0, 0, 0.8);
-    -fx-border-color: #440000;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.7), 15, 0.7, 0, 0);
+    /* Fondo rojo más opaco */
+    -fx-background-color: rgba(80, 0, 0, 0.8);
+    -fx-border-color: #ff4444;
+
+    /* El efecto de resplandor aumenta ligeramente, pero sigue siendo tenue */
+    -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.7), 15, 0.7, 0, 0);
 }
 
 /* Color base para todo el neón (igual que el título) */
 .neon-red {
-    -fx-text-fill: #440000;
+    -fx-text-fill: #a04040;
     -fx-background-color: rgba(0, 0, 0, 0.7);
-    -fx-border-color: #440000;
+    -fx-border-color: #a04040;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-font-family: "Consolas Bold";
     -fx-font-size: 13pt;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.8), 10, 0.7, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(160, 64, 64, 0.8), 10, 0.7, 0, 0);
 }
 
+/* Estado apagado/dim para parpadeo */
 .neon-red-dim {
     -fx-text-fill: #440000;
     -fx-background-color: rgba(0, 0, 0, 0.7);
     -fx-border-color: #440000;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.2), 5, 0.1, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(100, 0, 0, 0.2), 5, 0.1, 0, 0);
 }
 
 /* TextField y ComboBox */
 .text-field, .combo-box {
-    -fx-text-fill: #440000;
+    -fx-text-fill: #a04040;
     -fx-background-color: rgba(0, 0, 0, 0.7);
-    -fx-border-color: #440000;
+    -fx-border-color: #a04040;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-font-family: "Consolas Bold";
@@ -106,23 +157,13 @@
 
 /* Botón */
 .button {
-    -fx-text-fill: #440000;
+    -fx-text-fill: #a04040;
     -fx-background-color: rgba(0, 0, 0, 0.6);
-    -fx-border-color: #440000;
+    -fx-border-color: #a04040;
     -fx-border-width: 2px;
     -fx-border-radius: 5px;
     -fx-font-family: "Consolas Bold";
     -fx-font-size: 14pt;
-    -fx-effect: dropshadow(gaussian, rgba(68, 0, 0, 0.5), 8, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(160, 64, 64, 0.5), 8, 0.5, 0, 0);
     -fx-cursor: hand;
-}
-
-/* Animación de parpadeo para el título */
-.title {
-    -fx-text-fill: #440000;
-    -fx-animation: blink 1s infinite;
-}
-
-@keyframes blink {
-    50% { -fx-text-fill: rgba(68, 0, 0, 0.3); }
 }
