@@ -14,19 +14,19 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="569.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="569.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
     <children>
 
-        <ImageView fitHeight="383.0" fitWidth="569.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+        <ImageView fitHeight="${rootPane.height}" fitWidth="${rootPane.width}" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@fondo.gif" />
          </image>
         </ImageView>
 
-        <TextField layoutX="192.0" layoutY="131.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
-        <TextField layoutX="192.0" layoutY="186.0" prefHeight="12.0" prefWidth="186.0" promptText="Apellidos" />
+        <TextField layoutX="192.0" layoutY="160.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
+        <TextField layoutX="192.0" layoutY="215.0" prefHeight="36.0" prefWidth="186.0" promptText="Apellidos" />
 
-        <ComboBox fx:id="cursoComboBox" layoutX="191.0" layoutY="246.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
+        <ComboBox fx:id="cursoComboBox" layoutX="191.0" layoutY="275.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="DAM1" />
@@ -39,43 +39,14 @@
             </items>
         </ComboBox>
 
-        <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Button" />
-        <Label alignment="CENTER" layoutX="73.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL DEL TERROR">
+        <Button layoutX="191.0" layoutY="336.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Button" />
+        <Label fx:id="titulo" alignment="CENTER" layoutX="61.0" layoutY="51.0" prefHeight="54.0" prefWidth="446.0" text="Tunel del terror">
             <font>
-                <Font name="Consolas Bold" size="40.0" />
+                <Font name="Consolas Bold" size="34.0" />
             </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="73.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL DEL TERROR">
-            <font>
-                <Font name="Consolas Bold" size="40.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="73.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL DEL TERROR">
-            <font>
-                <Font name="Consolas Bold" size="40.0" />
-            </font>
-        </Label>
-        <Label alignment="CENTER" layoutX="73.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL DEL TERROR">
-            <font>
-                <Font name="Consolas Bold" size="40.0" />
-            </font>
-        </Label>
-        <Label fx:id="titulo" alignment="CENTER" layoutX="61.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL DEL TERROR">
-            <font>
-                <Font name="Consolas Bold" size="40.0" />
-            </font>
-            <textFill>
-                <RadialGradient centerX="0.5" centerY="0.4905" cycleMethod="REFLECT" focusAngle="9.46" focusDistance="-0.1839" proportional="false" radius="0.9023">
-                    <stops>
-                        <Stop>
-                            <color><Color red="1.0" /></color>
-                        </Stop>
-                        <Stop offset="1.0">
-                            <color><Color red="1.0" green="1.0" blue="1.0" /></color>
-                        </Stop>
-                    </stops>
-                </RadialGradient>
-            </textFill>
+            <styleClass>
+                <String fx:value="titulo" />
+            </styleClass>
         </Label>
     </children>
 </Pane>
