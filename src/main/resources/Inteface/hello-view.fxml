@@ -9,24 +9,21 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.RadialGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="383.0" prefWidth="569.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
     <children>
 
-        <ImageView fitHeight="383.0" fitWidth="569.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="false">
+        <ImageView fitHeight="383.0" fitWidth="569.0" layoutX="1.0" pickOnBounds="true" preserveRatio="false">
          <image>
             <Image url="@fondo.gif" />
          </image>
         </ImageView>
 
         <TextField layoutX="192.0" layoutY="160.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
-        <TextField layoutX="192.0" layoutY="215.0" prefHeight="36.0" prefWidth="186.0" promptText="Apellidos" />
+        <TextField layoutX="192.0" layoutY="208.0" prefHeight="36.0" prefWidth="186.0" promptText="Apellidos" />
 
-        <ComboBox fx:id="cursoComboBox" layoutX="191.0" layoutY="275.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
+        <ComboBox fx:id="cursoComboBox" layoutX="192.0" layoutY="260.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="DAM1" />
@@ -40,9 +37,9 @@
         </ComboBox>
 
         <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Button" />
-        <Label fx:id="titulo" alignment="CENTER" layoutX="61.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL  DEL TERROR">
+        <Label fx:id="titulo" alignment="CENTER" layoutX="47.0" layoutY="56.0" prefHeight="74.0" prefWidth="474.0" text="TUNEL  DEL TERROR">
             <font>
-                <Font name="Consolas Bold" size="34.0" />
+                <Font name="Consolas Bold" size="12.0" />
             </font>
             <styleClass>
                 <String fx:value="titulo" />
