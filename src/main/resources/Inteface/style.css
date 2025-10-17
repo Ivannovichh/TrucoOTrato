@@ -5,20 +5,35 @@
     -fx-background-color: transparent;
 }
 
-/* Estilo para el título con efecto neón y parpadeo */
-.title {
-    -fx-text-fill: #FF0000;
-    -fx-font-size: 24pt;
+/* Estilo base para el título del formulario */
+.titulo {
+    -fx-alignment: center;
+    -fx-padding: 8 24 12 24;
+    -fx-background-color: rgba(60, 0, 0, 0.75);
+    -fx-border-color: rgba(90, 0, 0, 0.95);
+    -fx-border-width: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 20, 0.45, 0, 0);
+    -fx-text-fill: #3b0000;
+    -fx-font-size: 34pt;
     -fx-font-family: "Consolas Bold";
-    -fx-effect: dropshadow(gaussian, rgba(255, 0, 0, 0.8), 5, 0.7, 0, 0);
-    -fx-border-color: #FF0000;
-    -fx-border-width: 2px;
-    -fx-border-insets: -2px;
-    -fx-animation: blink 1s infinite;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
 }
 
-@keyframes blink {
-    50% { -fx-text-fill: rgba(255, 0, 0, 0.3); }
+/* Estado tenue del neón */
+.titulo-neon-dim {
+    -fx-background-color: rgba(45, 0, 0, 0.7);
+    -fx-border-color: rgba(70, 0, 0, 0.8);
+    -fx-text-fill: #280000;
+    -fx-effect: dropshadow(gaussian, rgba(40, 0, 0, 0.6), 14, 0.35, 0, 0);
+}
+
+/* Estado brillante del neón */
+.titulo-neon-bright {
+    -fx-background-color: rgba(120, 0, 0, 0.82);
+    -fx-border-color: rgba(200, 0, 0, 0.95);
+    -fx-text-fill: #ff1c1c;
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.85), 32, 0.8, 0, 0);
 }
 
 /* Estilo para todos los TextField (Nombre y Apellidos) */
@@ -123,26 +138,6 @@
 
     /* El efecto de resplandor aumenta ligeramente, pero sigue siendo tenue */
     -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.7), 15, 0.7, 0, 0);
-}
-
-/* Color base para todo el neón (igual que el título) */
-.neon-red {
-    -fx-text-fill: #a04040;
-    -fx-background-color: rgba(0, 0, 0, 0.7);
-    -fx-border-color: #a04040;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-font-family: "Consolas Bold";
-    -fx-font-size: 13pt;
-    -fx-effect: dropshadow(gaussian, rgba(160, 64, 64, 0.8), 10, 0.7, 0, 0);
-}
-
-/* Estado apagado/dim para parpadeo */
-.neon-red-dim {
-    -fx-text-fill: #440000;
-    -fx-background-color: rgba(0, 0, 0, 0.7);
-    -fx-border-color: #440000;
-    -fx-effect: dropshadow(gaussian, rgba(100, 0, 0, 0.2), 5, 0.1, 0, 0);
 }
 
 /* TextField y ComboBox */
