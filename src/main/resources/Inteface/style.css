@@ -113,12 +113,9 @@
 }
 
 .button:hover {
-    /* Fondo rojo más opaco */
-    -fx-background-color: rgba(80, 0, 0, 0.8);
-    -fx-border-color: #ff4444;
-
-    /* El efecto de resplandor aumenta ligeramente, pero sigue siendo tenue */
-    -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.7), 15, 0.7, 0, 0);
+    -fx-background-color: rgba(70, 0, 0, 0.8);
+    -fx-border-color: #c00000;
+    -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.6), 14, 0.6, 0, 0);
 }
 
 /* TextField y ComboBox */
