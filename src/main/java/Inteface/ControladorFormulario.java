@@ -20,8 +20,8 @@ public class ControladorFormulario {
             titulo.getStyleClass().add("titulo-neon-bright");
         }
 
-        // Iniciar parpadeo irregular con intervalos un poco más espaciados
-        iniciarParpadeo(titulo, 360, 820);
+        // Iniciar parpadeo irregular con intervalos más cortos
+        iniciarParpadeo(titulo, 220, 620);
     }
 
     /**
