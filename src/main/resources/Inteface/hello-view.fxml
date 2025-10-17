@@ -23,10 +23,10 @@
          </image>
         </ImageView>
 
-        <TextField layoutX="192.0" layoutY="131.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
-        <TextField layoutX="192.0" layoutY="186.0" prefHeight="12.0" prefWidth="186.0" promptText="Apellidos" />
+        <TextField layoutX="192.0" layoutY="160.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
+        <TextField layoutX="192.0" layoutY="215.0" prefHeight="36.0" prefWidth="186.0" promptText="Apellidos" />
 
-        <ComboBox fx:id="cursoComboBox" layoutX="191.0" layoutY="246.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
+        <ComboBox fx:id="cursoComboBox" layoutX="191.0" layoutY="275.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="DAM1" />
@@ -42,7 +42,7 @@
         <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Button" />
         <Label fx:id="titulo" alignment="CENTER" layoutX="61.0" layoutY="51.0" prefHeight="48.0" prefWidth="446.0" text="TUNEL  DEL TERROR">
             <font>
-                <Font name="Consolas Bold" size="40.0" />
+                <Font name="Consolas Bold" size="34.0" />
             </font>
             <styleClass>
                 <String fx:value="titulo" />
