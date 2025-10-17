@@ -1,7 +1,6 @@
 package Inteface;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
@@ -16,11 +15,13 @@ public class ControladorFormulario {
 
     @FXML
     public void initialize() {
-        // Aplicar clase base de neón al título
-        titulo.getStyleClass().add("neon-red");
+        // Asegurar el estado inicial brillante para el efecto de neón
+        if (!titulo.getStyleClass().contains("titulo-neon-bright")) {
+            titulo.getStyleClass().add("titulo-neon-bright");
+        }
 
-        // Iniciar parpadeo lento solo para el título
-        iniciarParpadeo(titulo, 800, 1500);  // entre 0.8 y 1.5 segundos
+        // Iniciar parpadeo irregular con intervalos más cortos
+        iniciarParpadeo(titulo, 220, 620);
     }
 
     /**
@@ -30,23 +31,29 @@ public class ControladorFormulario {
      * @param maxMillis Tiempo máximo en milisegundos entre cambios
      */
     private void iniciarParpadeo(javafx.scene.Node nodo, int minMillis, int maxMillis) {
-        Timeline timeline = new Timeline(
-                new KeyFrame(Duration.millis(minMillis + random.nextInt(maxMillis)), e -> alternarClase(nodo))
-        );
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+        int intervalo = minMillis + random.nextInt(Math.max(1, maxMillis - minMillis));
+        PauseTransition pausa = new PauseTransition(Duration.millis(intervalo));
+        pausa.setOnFinished(event -> {
+            alternarClase(nodo);
+            iniciarParpadeo(nodo, minMillis, maxMillis);
+        });
+        pausa.play();
     }
 
     /**
-     * Alterna entre las clases CSS neon-red y neon-red-dim.
+     * Alterna entre los estados brillante y tenue del título.
      */
     private void alternarClase(javafx.scene.Node nodo) {
-        if (nodo.getStyleClass().contains("neon-red")) {
-            nodo.getStyleClass().remove("neon-red");
-            nodo.getStyleClass().add("neon-red-dim");
+        if (nodo.getStyleClass().contains("titulo-neon-bright")) {
+            nodo.getStyleClass().remove("titulo-neon-bright");
+            if (!nodo.getStyleClass().contains("titulo-neon-dim")) {
+                nodo.getStyleClass().add("titulo-neon-dim");
+            }
         } else {
-            nodo.getStyleClass().remove("neon-red-dim");
-            nodo.getStyleClass().add("neon-red");
+            nodo.getStyleClass().remove("titulo-neon-dim");
+            if (!nodo.getStyleClass().contains("titulo-neon-bright")) {
+                nodo.getStyleClass().add("titulo-neon-bright");
+            }
         }
     }
 }
