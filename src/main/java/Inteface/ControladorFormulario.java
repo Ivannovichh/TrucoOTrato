@@ -16,13 +16,12 @@ public class ControladorFormulario {
     @FXML
     public void initialize() {
         // Asegurar el estado inicial brillante para el efecto de neón
-        titulo.getStyleClass().remove("titulo-neon-dim");
         if (!titulo.getStyleClass().contains("titulo-neon-bright")) {
             titulo.getStyleClass().add("titulo-neon-bright");
         }
 
-        // Iniciar parpadeo irregular con intervalos más espaciados
-        iniciarParpadeo(titulo, 1100, 2100);
+        // Iniciar parpadeo irregular con intervalos más cortos
+        iniciarParpadeo(titulo, 220, 620);
     }
 
     /**
