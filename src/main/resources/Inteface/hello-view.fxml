@@ -36,7 +36,7 @@
             </items>
         </ComboBox>
 
-        <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="Button" />
+        <Button layoutX="191.0" layoutY="307.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="186.0" text="AVANZAR" onAction="#irARoulette" />
         <Label fx:id="titulo" alignment="CENTER" layoutX="47.0" layoutY="56.0" prefHeight="74.0" prefWidth="474.0" text="TUNEL  DEL TERROR">
             <font>
                 <Font name="Consolas Bold" size="12.0" />

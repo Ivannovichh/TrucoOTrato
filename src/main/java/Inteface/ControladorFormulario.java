@@ -2,15 +2,19 @@ package Inteface;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class ControladorFormulario {
 
     @FXML private Label titulo;
-
     private final Random random = new Random();
 
     @FXML
@@ -56,4 +60,15 @@ public class ControladorFormulario {
             }
         }
     }
+
+    @FXML
+    public void irARoulette() throws IOException {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Inteface/roulette-view.fxml"));
+        Scene scene = new Scene(fxml.load(), 600, 400);
+        Stage stage = (Stage) titulo.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Roulette");
+        stage.show();
+    }
+
 }
