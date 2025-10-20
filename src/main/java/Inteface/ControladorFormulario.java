@@ -2,35 +2,60 @@ package Inteface;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.util.Duration;
-
 import java.util.Random;
+import Roulette.Launcher;
 
 public class ControladorFormulario {
 
     @FXML private Label titulo;
+    @FXML private TextField nombreField;
+    @FXML private TextField apellidosField;
+    @FXML private ComboBox<String> cursoComboBox;
+    @FXML private Button continuarBtn;
 
     private final Random random = new Random();
 
     @FXML
     public void initialize() {
-        // Asegurar el estado inicial brillante para el efecto de neón
         if (!titulo.getStyleClass().contains("titulo-neon-bright")) {
             titulo.getStyleClass().add("titulo-neon-bright");
         }
-
-        // Iniciar parpadeo irregular con intervalos más cortos
         iniciarParpadeo(titulo, 220, 620);
     }
 
-    /**
-     * Inicia un parpadeo aleatorio para un nodo.
-     * @param nodo Nodo de JavaFX
-     * @param minMillis Tiempo mínimo en milisegundos entre cambios
-     * @param maxMillis Tiempo máximo en milisegundos entre cambios
-     */
-    private void iniciarParpadeo(javafx.scene.Node nodo, int minMillis, int maxMillis) {
+    @FXML
+    private void onContinuar() {
+        String nombre = nombreField.getText() == null ? "" : nombreField.getText().trim();
+        String apellidos = apellidosField.getText() == null ? "" : apellidosField.getText().trim();
+        String curso = cursoComboBox.getValue();
+
+        // Validación de campos vacíos
+        if (nombre.isEmpty() || apellidos.isEmpty() || curso == null || curso.isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Campos incompletos");
+            alert.setHeaderText(null);
+            alert.setContentText("Rellena Nombre, Apellidos y selecciona un Curso antes de continuar.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Llamar al Launcher de la ruleta
+        try {
+            Roulette.Launcher.open(nombre, apellidos, curso);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Alert error = new Alert(Alert.AlertType.ERROR);
+            error.setTitle("Error al abrir la ruleta");
+            error.setHeaderText(null);
+            error.setContentText("Ha ocurrido un error al abrir la ruleta. Revisa la consola para más detalles.");
+            error.showAndWait();
+        }
+    }
+
+    private void iniciarParpadeo(Node nodo, int minMillis, int maxMillis) {
         int intervalo = minMillis + random.nextInt(Math.max(1, maxMillis - minMillis));
         PauseTransition pausa = new PauseTransition(Duration.millis(intervalo));
         pausa.setOnFinished(event -> {
@@ -40,10 +65,7 @@ public class ControladorFormulario {
         pausa.play();
     }
 
-    /**
-     * Alterna entre los estados brillante y tenue del título.
-     */
-    private void alternarClase(javafx.scene.Node nodo) {
+    private void alternarClase(Node nodo) {
         if (nodo.getStyleClass().contains("titulo-neon-bright")) {
             nodo.getStyleClass().remove("titulo-neon-bright");
             if (!nodo.getStyleClass().contains("titulo-neon-dim")) {

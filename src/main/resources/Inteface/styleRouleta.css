@@ -1,0 +1,37 @@
+.root-pane {
+    -fx-background-color: #202020;
+    -fx-padding: 16;
+}
+
+.titulo {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 24px;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+}
+
+.leyenda {
+    -fx-text-fill: white;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 14px;
+}
+
+.color-box {
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-border-color: white;
+    -fx-border-width: 1;
+}
+
+.boton-girar {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: black;
+    -fx-font-family: "Consolas";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16;
+    -fx-background-radius: 6;
+}
+.boton-girar:hover {
+    -fx-background-color: #FFC300;
+}

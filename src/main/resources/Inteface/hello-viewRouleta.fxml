@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Roulette.HelloControllerRouleta"
+            styleClass="root-pane">
+
+    <top>
+        <VBox alignment="CENTER" spacing="8" BorderPane.alignment="CENTER">
+            <Label text="RULETA DE HALLOWEEN" styleClass="titulo"/>
+            <HBox alignment="CENTER" spacing="16">
+                <HBox alignment="CENTER" spacing="6">
+                    <Label styleClass="color-box" style="-fx-background-color: red;"/>
+                    <Label text="Rojo = TRUCO" styleClass="leyenda"/>
+                </HBox>
+                <HBox alignment="CENTER" spacing="6">
+                    <Label styleClass="color-box" style="-fx-background-color: black;"/>
+                    <Label text="Negro = TRATO" styleClass="leyenda"/>
+                </HBox>
+                <HBox alignment="CENTER" spacing="6">
+                    <Label styleClass="color-box" style="-fx-background-color: green;"/>
+                    <Label text="Verde = OSKAR" styleClass="leyenda"/>
+                </HBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <StackPane fx:id="rouletteHolder" prefHeight="380" prefWidth="380"
+                   alignment="CENTER" BorderPane.alignment="CENTER"/>
+    </center>
+
+    <bottom>
+        <Button fx:id="btnSpin" text="Girar Ruleta" styleClass="boton-girar"
+                BorderPane.alignment="CENTER" maxWidth="200"/>
+    </bottom>
+</BorderPane>
