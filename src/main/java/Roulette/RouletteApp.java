@@ -3,6 +3,7 @@ package Roulette;
 import Roulette.WheelView;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -16,7 +17,9 @@ public class RouletteApp extends Application {
         Scene scene = new Scene(root, Screen.getPrimary().getVisualBounds().getWidth(), Screen.getPrimary().getVisualBounds().getHeight());
         stage.setTitle("Ruleta Halloween de Terror");
         stage.setScene(scene);
-        stage.setMaximized(true);
+        stage.setFullScreen(true); // Pantalla completa automática
+        stage.setFullScreenExitHint(""); // Sin mensaje de salida
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH); // Deshabilitar ESC
         stage.show();
     }
 

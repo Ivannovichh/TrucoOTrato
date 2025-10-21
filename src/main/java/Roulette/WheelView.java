@@ -102,9 +102,9 @@ public class WheelView extends Pane {
     }
 
     private void initSectors() {
-        // Distribución: 3 TRUCO, 3 TRATO, 1 OSKAR
+        // Distribución: 3 TRUCO, 3 TRATO, 1 OSKAR (OSKAR en naranja)
         String[] labels = {"TRUCO", "TRATO", "OSKAR", "TRUCO", "TRATO", "TRUCO", "TRATO"};
-        Color[] colors = {Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED};
+        Color[] colors = {Color.RED, Color.BLACK, Color.ORANGE, Color.BLACK, Color.RED, Color.RED, Color.BLACK};
         for (int i = 0; i < SECTORS; i++) {
             sectors.add(new Sector(labels[i], colors[i]));
         }
@@ -142,20 +142,20 @@ public class WheelView extends Pane {
     }
 
     private void setupIndicator() {
-        // Triángulo indicador estático
+        // Triángulo indicador estático, girado 180 grados sin mover su posición
         indicator = new Polygon();
         double centerX = WIDTH / 2;
         double centerY = HEIGHT / 2;
         indicator.getPoints().addAll(
-                centerX + RADIUS + 20, centerY - 15,
-                centerX + RADIUS + 50, centerY,
-                centerX + RADIUS + 20, centerY + 15
+                centerX - RADIUS - 20, centerY - 15, // Superior
+                centerX - RADIUS + 10, centerY,      // Punta derecha (hacia afuera)
+                centerX - RADIUS - 20, centerY + 15  // Inferior
         );
         indicator.setFill(Color.RED);
         indicator.setStroke(Color.BLACK);
         indicator.setStrokeWidth(3);
         // Detalle de "sangre"
-        Circle blood = new Circle(centerX + RADIUS + 25, centerY, 5, Color.DARKRED);
+        Circle blood = new Circle(centerX - RADIUS + 5, centerY, 5, Color.DARKRED);
         getChildren().add(blood);
     }
 
@@ -163,7 +163,7 @@ public class WheelView extends Pane {
         spinButton = new Button("¡GIRAR RULETA!");
         spinButton.setStyle("-fx-font-family: 'Creepster'; -fx-font-size: " + (WIDTH * 0.015) + "; -fx-background-color: #000000; -fx-text-fill: #FF0000; -fx-padding: 12 24; -fx-effect: dropshadow(gaussian, #FFFFFF, 10, 0.5, 0, 0);");
         spinButton.setLayoutX(WIDTH * 0.45);
-        spinButton.setLayoutY(HEIGHT * 0.92); // Más separado de la ruleta
+        spinButton.setLayoutY(HEIGHT * 0.92); // Separado de la ruleta
         spinButton.setOnAction(e -> spinWheel());
     }
 
