@@ -1,12 +1,12 @@
 package Inteface;
 
+import Roulette.WheelView;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.util.Duration;
 import java.util.Random;
-import Roulette.Launcher;
 
 public class ControladorFormulario {
 
@@ -44,7 +44,8 @@ public class ControladorFormulario {
 
         // Llamar al Launcher de la ruleta
         try {
-            Roulette.Launcher.open(nombre, apellidos, curso);
+            WheelView wheelView = new WheelView();
+            wheelView.open(nombre, apellidos, curso);
         } catch (Exception e) {
             e.printStackTrace();
             Alert error = new Alert(Alert.AlertType.ERROR);
