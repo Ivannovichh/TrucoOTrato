@@ -33,9 +33,9 @@ Este proyecto sirve como ejemplo o base para:
 |-------------|------------|
 | **Java** | Lenguaje de programación principal |
 | **Maven** | Gestión del proyecto y dependencias |
-| **CSS / HTML** | (Si aplica) Diseño visual de la interfaz |
+| **CSS** | Diseño visual de la interfaz |
 | **Git & GitHub** | Control de versiones y colaboración |
-| *(Opcional)* **JavaFX / Swing / Spring Boot** | Si se usa interfaz o backend en el proyecto |
+| **JavaFX / Swing / Spring Boot** | Si se usa interfaz o backend en el proyecto |
 
 ---
 
