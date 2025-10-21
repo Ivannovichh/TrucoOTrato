@@ -4,7 +4,9 @@ import Roulette.WheelView;
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.Random;
 
@@ -32,7 +34,6 @@ public class ControladorFormulario {
         String apellidos = apellidosField.getText() == null ? "" : apellidosField.getText().trim();
         String curso = cursoComboBox.getValue();
 
-        // Validación de campos vacíos
         if (nombre.isEmpty() || apellidos.isEmpty() || curso == null || curso.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Campos incompletos");
@@ -42,18 +43,20 @@ public class ControladorFormulario {
             return;
         }
 
-        // Llamar al Launcher de la ruleta
-        try {
-            WheelView wheelView = new WheelView();
-            wheelView.open(nombre, apellidos, curso);
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert error = new Alert(Alert.AlertType.ERROR);
-            error.setTitle("Error al abrir la ruleta");
-            error.setHeaderText(null);
-            error.setContentText("Ha ocurrido un error al abrir la ruleta. Revisa la consola para más detalles.");
-            error.showAndWait();
-        }
+        // Crear y mostrar la escena de la ruleta en pantalla completa
+        WheelView wheelView = new WheelView();
+        wheelView.open(nombre, apellidos, curso);
+        Scene wheelScene = new Scene(wheelView, 800, 600); // Tamaño inicial, se ajustará a pantalla completa
+        Stage stage = new Stage();
+        stage.setScene(wheelScene);
+        stage.setFullScreen(true);
+        stage.setFullScreenExitHint("");
+        stage.setFullScreenExitKeyCombination(null);
+        stage.show();
+
+        // Cerrar la ventana inicial
+        Stage currentStage = (Stage) continuarBtn.getScene().getWindow();
+        currentStage.close();
     }
 
     private void iniciarParpadeo(Node nodo, int minMillis, int maxMillis) {

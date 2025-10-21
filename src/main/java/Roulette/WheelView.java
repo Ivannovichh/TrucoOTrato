@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Random;
 
 public class WheelView extends Pane {
-    private static final int SECTORS = 7; // 7 casillas
+    private static final int SECTORS = 6; // 6 casillas
     private final double RADIUS; // Radio escalado según pantalla
     private final double WIDTH; // Ancho de pantalla
     private final double HEIGHT; // Alto de pantalla
@@ -36,10 +36,10 @@ public class WheelView extends Pane {
     private Random random = new Random();
     private MediaPlayer spinPlayer; // Sonido de giro
     private Image backgroundImg;
-    private String nombre, apellidos, curso; // Datos del usuario
-    private Label welcomeLabel, resultLabel; // Etiquetas para mensajes
     private ImageView backgroundView; // Fondo estático
     private Polygon indicator; // Triángulo indicador estático
+    private Label welcomeLabel; // Etiqueta de bienvenida
+    private Label resultLabel; // Etiqueta para mostrar el resultado
 
     public WheelView() {
         // Obtener dimensiones de la pantalla
@@ -49,11 +49,7 @@ public class WheelView extends Pane {
         RADIUS = Math.min(WIDTH, HEIGHT) * 0.35; // 35% del menor lado
 
         // Inicializar fondo estático
-        try {
-            backgroundImg = new Image(getClass().getResourceAsStream("/background.jpg"));
-        } catch (Exception e) {
-            backgroundImg = new Image(getClass().getResourceAsStream("/Inteface/background.jpg"));
-        }
+        backgroundImg = new Image(getClass().getResourceAsStream("/Inteface/background.jpg"));
         backgroundView = new ImageView(backgroundImg);
         backgroundView.setFitWidth(WIDTH);
         backgroundView.setFitHeight(HEIGHT);
@@ -62,51 +58,34 @@ public class WheelView extends Pane {
         wheelCanvas = new Canvas(WIDTH, HEIGHT);
         initResources();
         initSectors();
-        drawWheel();
+        drawWheel(); // Dibujar la ruleta y texto fijo al inicio
         setupIndicator();
         setupButtons();
         setupAnimations();
 
-        // Agregar elementos al Pane
-        getChildren().addAll(backgroundView, wheelCanvas, indicator, spinButton);
+        // Agregar elementos al Pane: fondo, canvas, botón, triángulo (al frente)
+        getChildren().addAll(backgroundView, wheelCanvas, spinButton, indicator);
     }
 
-    // Método open para inicializar con datos del usuario
     public void open(String nombre, String apellidos, String curso) {
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.curso = curso;
-
-        // Etiqueta de bienvenida
+        // Etiqueta de bienvenida centrada arriba
         welcomeLabel = new Label("¡Bienvenid@, " + nombre + " " + apellidos + " del curso " + curso + "!");
-        welcomeLabel.setStyle("-fx-font-family: 'Creepster'; -fx-font-size: " + (WIDTH * 0.015) + "; -fx-text-fill: #FF0000; -fx-background-color: rgba(0,0,0,0.8); -fx-padding: 12; -fx-effect: dropshadow(gaussian, #FFFFFF, 10, 0.5, 0, 0);");
-        welcomeLabel.setLayoutX(WIDTH * 0.3);
-        welcomeLabel.setLayoutY(HEIGHT * 0.05);
+        welcomeLabel.setStyle("-fx-font-family: 'Creepster'; -fx-font-size: " + (WIDTH * 0.015) + "; -fx-text-fill: #FF0000; -fx-background-color: rgba(0,0,0,0.6); -fx-padding: 10; -fx-effect: dropshadow(gaussian, #FFFFFF, 10, 0.5, 0, 0);");
+        welcomeLabel.setLayoutX(WIDTH * 0.35);
+        welcomeLabel.setLayoutY(HEIGHT * 0.02);
         getChildren().add(welcomeLabel);
-
-        // Etiqueta para resultados
-        resultLabel = new Label("");
-        resultLabel.setStyle("-fx-font-family: 'Creepster'; -fx-font-size: " + (WIDTH * 0.02) + "; -fx-text-fill: #FF0000; -fx-background-color: rgba(0,0,0,0.8); -fx-padding: 15; -fx-effect: dropshadow(gaussian, #FFFFFF, 10, 0.5, 0, 0);");
-        resultLabel.setLayoutX(WIDTH * 0.35);
-        resultLabel.setLayoutY(HEIGHT * 0.75);
-        getChildren().add(resultLabel);
     }
 
     private void initResources() {
-        // Cargar sonido de giro
-        try {
-            spinPlayer = new MediaPlayer(new Media(getClass().getResource("/spin.mp3").toString()));
-        } catch (Exception e) {
-            spinPlayer = new MediaPlayer(new Media(getClass().getResource("/Inteface/spin.mp3").toString()));
-        }
+        spinPlayer = new MediaPlayer(new Media(getClass().getResource("/Inteface/spin.mp3").toString()));
     }
 
     private void initSectors() {
-        // Distribución: 3 TRUCO, 3 TRATO, 1 OSKAR (OSKAR en naranja)
-        String[] labels = {"TRUCO", "TRATO", "OSKAR", "TRUCO", "TRATO", "TRUCO", "TRATO"};
-        Color[] colors = {Color.RED, Color.BLACK, Color.ORANGE, Color.BLACK, Color.RED, Color.RED, Color.BLACK};
+        // Distribución: 3 TRUCO (negro), 3 TRATO (rojo) para visualización
+        String[] labels = {"TRUCO", "TRATO", "TRUCO", "TRATO", "TRUCO", "TRATO"};
+        Color[] colors = {Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED};
         for (int i = 0; i < SECTORS; i++) {
-            sectors.add(new Sector(labels[i], colors[i]));
+            sectors.add(new Sector(labels[i], colors[i], i));
         }
     }
 
@@ -124,25 +103,33 @@ public class WheelView extends Pane {
         for (int i = 0; i < SECTORS; i++) {
             gc.setFill(sectors.get(i).color);
             gc.fillArc(centerX - RADIUS, centerY - RADIUS, 2 * RADIUS, 2 * RADIUS,
-                    currentAngle + i * angleStep, angleStep, javafx.scene.shape.ArcType.ROUND);
+                    i * angleStep + currentAngle, angleStep, javafx.scene.shape.ArcType.ROUND);
             // Borde plateado
             gc.setStroke(Color.SILVER);
             gc.setLineWidth(2);
             gc.strokeArc(centerX - RADIUS, centerY - RADIUS, 2 * RADIUS, 2 * RADIUS,
-                    currentAngle + i * angleStep, angleStep, javafx.scene.shape.ArcType.ROUND);
-            // Texto
-            gc.setFill(Color.WHITE);
-            gc.setFont(Font.font("Creepster", WIDTH * 0.015));
-            gc.setEffect(new DropShadow(5, Color.BLACK));
-            double textX = centerX + Math.cos(Math.toRadians(currentAngle + (i + 0.5) * angleStep)) * RADIUS * 0.7;
-            double textY = centerY + Math.sin(Math.toRadians(currentAngle + (i + 0.5) * angleStep)) * RADIUS * 0.7;
-            gc.fillText(sectors.get(i).label, textX, textY);
+                    i * angleStep + currentAngle, angleStep, javafx.scene.shape.ArcType.ROUND);
+        }
+
+        // Dibujar texto en cada sector con rotación dinámica
+        gc.setFill(Color.WHITE);
+        gc.setFont(Font.font("Creepster", WIDTH * 0.015));
+        gc.setEffect(new DropShadow(5, Color.BLACK));
+        for (int i = 0; i < SECTORS; i++) {
+            double textAngle = Math.toRadians(i * angleStep + angleStep / 2 + currentAngle); // Ajuste preciso
+            double textX = centerX + Math.cos(textAngle) * RADIUS * 0.7;
+            double textY = centerY + Math.sin(textAngle) * RADIUS * 0.7;
+            gc.save();
+            gc.translate(centerX, centerY);
+            gc.rotate(i * angleStep + currentAngle); // Rotación exacta
+            gc.fillText(sectors.get(i).label, -gc.getFont().getSize() / 2, -RADIUS * 0.7);
+            gc.restore();
         }
         gc.setEffect(null);
     }
 
     private void setupIndicator() {
-        // Triángulo indicador estático, girado 180 grados sin mover su posición
+        // Triángulo indicador estático, apuntando a la izquierda (270°)
         indicator = new Polygon();
         double centerX = WIDTH / 2;
         double centerY = HEIGHT / 2;
@@ -168,105 +155,123 @@ public class WheelView extends Pane {
     }
 
     private void setupAnimations() {
-        spinAnimation = new RotateTransition(Duration.seconds(random.nextDouble() * 2 + 3), wheelCanvas);
-        spinAnimation.setFromAngle(0);
-        spinAnimation.setToAngle(360 * 5 + random.nextDouble() * 360); // 5 vueltas + random
-        spinAnimation.setInterpolator(Interpolator.EASE_OUT);
+        spinAnimation = new RotateTransition(Duration.seconds(random.nextDouble() * 2 + 3), wheelCanvas); // Duración variable
+        spinAnimation.setFromAngle(currentAngle); // Partir desde el ángulo actual
+        int minTurns = 2, maxTurns = 5;
+        double totalRotation = currentAngle + 360 * (minTurns + random.nextInt(maxTurns - minTurns + 1)) + random.nextDouble() * 360; // 2 a 5 vueltas + variación
+        spinAnimation.setToAngle(totalRotation);
+        spinAnimation.setInterpolator(Interpolator.EASE_OUT); // Deceleración natural
         spinAnimation.setOnFinished(e -> {
-            currentAngle = (currentAngle + spinAnimation.getToAngle()) % 360;
-            drawWheel();
-            Sector winner = getWinnerSector();
+            currentAngle = spinAnimation.getToAngle(); // Usar el ángulo exacto de detención sin módulo
+            drawWheel(); // Redibujar con el ángulo final exacto
+            Sector winner = getWinnerSector(); // Determinar resultado basado en la posición final
             executeEffect(winner);
             spinPlayer.stop();
-            // Limpiar efectos
-            getChildren().removeIf(node -> node instanceof Circle);
-            resultLabel.setText("");
-            spinButton.setDisable(false);
+            showResult(winner.result); // Mostrar resultado basado en la casilla
+            spinButton.setDisable(false); // Habilitar botón para otro giro
         });
     }
 
     private void spinWheel() {
-        spinButton.setDisable(true);
-        spinPlayer.seek(Duration.ZERO);
-        spinPlayer.play();
-        spinAnimation.playFromStart();
+        if (!spinButton.isDisabled()) { // Evitar múltiples clics simultáneos
+            spinButton.setDisable(true);
+            spinPlayer.play();
+            spinAnimation.play();
+        }
     }
 
     private Sector getWinnerSector() {
-        double angle = (360 - (currentAngle % 360)) % 360;
-        int sectorIndex = (int) (angle / (360.0 / SECTORS));
-        return sectors.get(sectorIndex);
+        // Determinar resultado basado en la posición final exacta bajo el indicador
+        double angleStep = 360.0 / SECTORS;
+        double finalAngle = spinAnimation.getToAngle() % 360; // Usar el ángulo exacto de detención
+        int sectorIndex = (int) ((finalAngle / angleStep) % SECTORS); // Calcular sector sin ajuste
+        Sector sector = sectors.get(sectorIndex);
+        String result = (sector.color == Color.RED) ? "TRATO" : "TRUCO"; // Resultado según el color
+        return new Sector(sector.label, sector.color, sectorIndex) {
+            { this.result = result; }
+        };
     }
 
     private void executeEffect(Sector winner) {
-        switch (winner.label) {
-            case "TRUCO":
-                vibrateScreen();
-                resultLabel.setText(nombre + ", ¡TRUCO escalofriante!");
-                break;
-            case "TRATO":
-                confettiEffect();
-                resultLabel.setText(nombre + ", ¡TRATO lleno de dulces!");
-                break;
-            case "OSKAR":
-                fireworks();
-                resultLabel.setText(nombre + ", ¡OSKAR, rey del terror!");
-                break;
+        double centerX = WIDTH / 2;
+        double centerY = HEIGHT / 2;
+
+        if ("TRUCO".equals(winner.result)) {
+            // Animación de confeti para TRUCO
+            for (int i = 0; i < 20; i++) {
+                Circle confetti = new Circle(
+                        centerX + random.nextDouble() * WIDTH * 0.4 - WIDTH * 0.2,
+                        -10, // Comienzan fuera de la pantalla arriba
+                        5 + random.nextDouble() * 5,
+                        Color.rgb(
+                                (int) (random.nextDouble() * 255),
+                                (int) (random.nextDouble() * 255),
+                                (int) (random.nextDouble() * 255),
+                                0.8 // Opacidad
+                        )
+                );
+                getChildren().add(confetti);
+                TranslateTransition fall = new TranslateTransition(Duration.seconds(1 + random.nextDouble()), confetti);
+                fall.setToY(HEIGHT + 10);
+                RotateTransition rotate = new RotateTransition(Duration.seconds(1 + random.nextDouble()), confetti);
+                rotate.setByAngle(360 + random.nextDouble() * 360);
+                FadeTransition fade = new FadeTransition(Duration.seconds(1 + random.nextDouble()), confetti);
+                fade.setToValue(0);
+                ParallelTransition confettiTransition = new ParallelTransition(fall, rotate, fade);
+                confettiTransition.setOnFinished(e -> getChildren().remove(confetti));
+                confettiTransition.play();
+            }
+        } else if ("TRATO".equals(winner.result)) {
+            // Animación de caramelos para TRATO
+            for (int i = 0; i < 10; i++) {
+                Circle candy = new Circle(
+                        centerX + random.nextDouble() * WIDTH * 0.4 - WIDTH * 0.2,
+                        -10, // Comienzan fuera de la pantalla arriba
+                        10 + random.nextDouble() * 5,
+                        Color.rgb(
+                                (int) (random.nextDouble() * 128 + 127), // Colores pastel
+                                (int) (random.nextDouble() * 128 + 127),
+                                (int) (random.nextDouble() * 128 + 127)
+                        )
+                );
+                getChildren().add(candy);
+                TranslateTransition fall = new TranslateTransition(Duration.seconds(1 + random.nextDouble()), candy);
+                fall.setToY(HEIGHT + 10);
+                RotateTransition rotate = new RotateTransition(Duration.seconds(1 + random.nextDouble()), candy);
+                rotate.setByAngle(180 + random.nextDouble() * 180);
+                FadeTransition fade = new FadeTransition(Duration.seconds(1 + random.nextDouble()), candy);
+                fade.setToValue(0);
+                ParallelTransition candyTransition = new ParallelTransition(fall, rotate, fade);
+                candyTransition.setOnFinished(e -> getChildren().remove(candy));
+                candyTransition.play();
+            }
         }
-        // Animar el mensaje de resultado
-        FadeTransition fade = new FadeTransition(Duration.seconds(3), resultLabel);
-        fade.setFromValue(1);
-        fade.setToValue(0);
-        fade.setDelay(Duration.seconds(2));
+    }
+
+    private void showResult(String result) {
+        if (resultLabel != null) getChildren().remove(resultLabel);
+        resultLabel = new Label("¡Resultado: " + result + "!");
+        resultLabel.setStyle("-fx-font-family: 'Creepster'; -fx-font-size: " + (WIDTH * 0.02) + "; -fx-text-fill: " + (result.equals("TRUCO") ? "#FF0000" : "#FFFF00") + "; -fx-background-color: rgba(0,0,0,0.6); -fx-padding: 10;");
+        resultLabel.setLayoutX(WIDTH * 0.4);
+        resultLabel.setLayoutY(HEIGHT * 0.4);
+        getChildren().add(resultLabel);
+        FadeTransition fade = new FadeTransition(Duration.seconds(2), resultLabel);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        fade.setOnFinished(e -> getChildren().remove(resultLabel));
         fade.play();
     }
 
-    private void vibrateScreen() {
-        TranslateTransition vib = new TranslateTransition(Duration.millis(2000), wheelCanvas);
-        vib.setFromX(0);
-        vib.setToX(10);
-        vib.setAutoReverse(true);
-        vib.setCycleCount(10);
-        vib.play();
-    }
-
-    private void confettiEffect() {
-        Random rand = new Random();
-        for (int i = 0; i < 60; i++) {
-            Circle particle = new Circle(5, rand.nextBoolean() ? Color.RED : Color.BLACK);
-            particle.setLayoutX(rand.nextDouble() * WIDTH);
-            particle.setLayoutY(0);
-            getChildren().add(particle);
-            TranslateTransition fall = new TranslateTransition(Duration.seconds(2 + rand.nextDouble()), particle);
-            fall.setToY(HEIGHT);
-            fall.setOnFinished(e -> getChildren().remove(particle));
-            fall.play();
-        }
-    }
-
-    private void fireworks() {
-        Random rand = new Random();
-        for (int i = 0; i < 15; i++) {
-            Circle spark = new Circle(8, rand.nextBoolean() ? Color.RED : Color.BLACK);
-            spark.setLayoutX(WIDTH / 2);
-            spark.setLayoutY(HEIGHT / 2);
-            getChildren().add(spark);
-            double angle = rand.nextDouble() * 360;
-            TranslateTransition explode = new TranslateTransition(Duration.seconds(1.5), spark);
-            explode.setToX(WIDTH / 2 + Math.cos(Math.toRadians(angle)) * RADIUS);
-            explode.setToY(HEIGHT / 2 + Math.sin(Math.toRadians(angle)) * RADIUS);
-            explode.setOnFinished(e -> getChildren().remove(spark));
-            explode.play();
-        }
-    }
-
-    static class Sector {
+    private class Sector {
         String label;
         Color color;
+        int index;
+        String result;
 
-        Sector(String label, Color color) {
+        Sector(String label, Color color, int index) {
             this.label = label;
             this.color = color;
+            this.index = index;
         }
     }
 }

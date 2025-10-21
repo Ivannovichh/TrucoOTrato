@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
@@ -11,13 +10,12 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
     <children>
-
         <ImageView fitHeight="579.0" fitWidth="770.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="false">
-         <image>
-            <Image url="@fondo.gif" />
-         </image>
+            <image>
+                <Image url="@fondo.gif" />
+            </image>
         </ImageView>
 
         <TextField fx:id="nombreField" layoutX="283.0" layoutY="186.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
