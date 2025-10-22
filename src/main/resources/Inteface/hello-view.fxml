@@ -10,19 +10,26 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<!-- Defines the root pane for the form with specified dimensions and stylesheet -->
 <Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Inteface.ControladorFormulario">
     <children>
+        <!-- Background image view with specified dimensions and positioning -->
         <ImageView fitHeight="579.0" fitWidth="770.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="false">
             <image>
+                <!-- Loads the background image from the specified resource -->
                 <Image url="@fondo.gif" />
             </image>
         </ImageView>
 
+        <!-- Text field for entering the user's name -->
         <TextField fx:id="nombreField" layoutX="283.0" layoutY="186.0" prefHeight="36.0" prefWidth="186.0" promptText="Nombre" />
+        <!-- Text field for entering the user's last name -->
         <TextField fx:id="apellidosField" layoutX="283.0" layoutY="241.0" prefHeight="36.0" prefWidth="186.0" promptText="Apellidos" />
 
+        <!-- ComboBox for selecting a course from a predefined list -->
         <ComboBox fx:id="cursoComboBox" layoutX="283.0" layoutY="296.0" prefHeight="1.0" prefWidth="186.0" promptText="Curso">
             <items>
+                <!-- Observable list of course options -->
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="DAM1" />
                     <String fx:value="DAM2" />
@@ -34,11 +41,15 @@
             </items>
         </ComboBox>
 
+        <!-- Button to proceed to the next action, linked to the onContinuar method -->
         <Button fx:id="continuarBtn" layoutX="282.0" layoutY="397.0" mnemonicParsing="false" onAction="#onContinuar" prefHeight="36.0" prefWidth="186.0" text="Continuar" />
+        <!-- Label displaying the title of the application -->
         <Label fx:id="titulo" alignment="CENTER" layoutX="134.0" layoutY="54.0" prefHeight="74.0" prefWidth="474.0" text="TUNEL  DEL TERROR">
+            <!-- Sets the font for the title -->
             <font>
                 <Font name="Consolas Bold" size="12.0" />
             </font>
+            <!-- Applies a custom CSS style class to the title -->
             <styleClass>
                 <String fx:value="titulo" />
             </styleClass>

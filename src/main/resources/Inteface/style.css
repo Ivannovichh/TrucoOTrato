@@ -1,129 +1,123 @@
-/* style.css */
-
-/* Estilo Base para el Panel (Fondo Oscuro/Contexto) */
+/* Sets the base style for the root pane */
 .root {
-    -fx-background-color: transparent;
+    -fx-background-color: transparent; /* Makes the background transparent */
 }
 
-/* Estilo base para el título del formulario */
+/* Defines the base style for the title label */
 .titulo {
-    -fx-alignment: center;
-    -fx-padding: 8 24 12 24;
-    -fx-background-color: rgba(60, 0, 0, 0.75);
-    -fx-border-color: rgba(90, 0, 0, 0.95);
-    -fx-border-width: 3px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 20, 0.45, 0, 0);
-    -fx-text-fill: #3b0000;
-    -fx-font-size: 30pt;
-    -fx-font-family: "Consolas Bold";
-    -fx-background-radius: 4px;
-    -fx-border-radius: 4px;
+    -fx-alignment: center; /* Centers the text horizontally */
+    -fx-padding: 8 24 12 24; /* Sets padding around the title */
+    -fx-background-color: rgba(60, 0, 0, 0.75); /* Semi-transparent dark red background */
+    -fx-border-color: rgba(90, 0, 0, 0.95); /* Dark red border color */
+    -fx-border-width: 3px; /* Border width of 3 pixels */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 20, 0.45, 0, 0); /* Applies a shadow effect */
+    -fx-text-fill: #3b0000; /* Dark red text color */
+    -fx-font-size: 30pt; /* Font size of 30 points */
+    -fx-font-family: "Consolas Bold"; /* Sets font to Consolas Bold */
+    -fx-background-radius: 4px; /* Rounded background corners */
+    -fx-border-radius: 4px; /* Rounded border corners */
 }
 
-/* Estado tenue del neón */
+/* Defines the dim neon state for the title */
 .titulo-neon-dim {
-    -fx-background-color: rgba(45, 0, 0, 0.7);
-    -fx-border-color: rgba(70, 0, 0, 0.8);
-    -fx-text-fill: #280000;
-    -fx-effect: dropshadow(gaussian, rgba(40, 0, 0, 0.6), 14, 0.35, 0, 0);
+    -fx-background-color: rgba(45, 0, 0, 0.7); /* Slightly darker semi-transparent background */
+    -fx-border-color: rgba(70, 0, 0, 0.8); /* Darker border color */
+    -fx-text-fill: #280000; /* Darker red text color */
+    -fx-effect: dropshadow(gaussian, rgba(40, 0, 0, 0.6), 14, 0.35, 0, 0); /* Reduced shadow effect */
 }
 
-/* Estado brillante del neón */
+/* Defines the bright neon state for the title */
 .titulo-neon-bright {
-    -fx-background-color: rgba(120, 0, 0, 0.82);
-    -fx-border-color: rgba(200, 0, 0, 0.95);
-    -fx-text-fill: #ff1c1c;
-    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.85), 32, 0.8, 0, 0);
+    -fx-background-color: rgba(120, 0, 0, 0.82); /* Brighter semi-transparent red background */
+    -fx-border-color: rgba(200, 0, 0, 0.95); /* Brighter red border color */
+    -fx-text-fill: #ff1c1c; /* Bright red text color */
+    -fx-effect: dropshadow(gaussian, rgba(255, 50, 50, 0.85), 32, 0.8, 0, 0); /* Enhanced shadow effect */
 }
 
-/* Estilo para todos los TextField (Nombre y Apellidos) */
-
+/* Defines the base style for all TextField components */
 .text-field {
-    /* Fondo semi-transparente muy oscuro */
-    -fx-background-color: rgba(0, 0, 0, 0.75);
-
-    /* Borde y texto con el mismo rojo */
-    -fx-border-color: #9b0000;
-    -fx-border-width: 2px;
-    -fx-text-fill: #9b0000;
-    -fx-prompt-text-fill: #9b0000;
-
-    /* Fuente */
-    -fx-font-size: 13pt;
-    -fx-font-family: "Consolas Bold";
-
-    /* Sombra inicial reducida */
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0);
-    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
+    -fx-background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent dark background */
+    -fx-border-color: #9b0000; /* Dark red border color */
+    -fx-border-width: 2px; /* Border width of 2 pixels */
+    -fx-text-fill: #9b0000; /* Dark red text color */
+    -fx-prompt-text-fill: #9b0000; /* Dark red placeholder text color */
+    -fx-font-size: 13pt; /* Font size of 13 points */
+    -fx-font-family: "Consolas Bold"; /* Sets font to Consolas Bold */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0); /* Minimal shadow effect */
+    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out; /* Smooth transition for border, background, and effect */
 }
 
-/* Estilo cuando un TextField está ENFOCADO (Focus) - Resplandor tenue y sutil */
+/* Defines the style for TextField when focused */
 .text-field:focused {
-    -fx-border-color: #c00000;
-    -fx-effect: dropshadow(gaussian, rgba(155, 0, 0, 0.85), 10, 0.6, 0, 0);
-    -fx-background-color: rgba(20, 0, 0, 0.9);
+    -fx-border-color: #c00000; /* Brighter red border color */
+    -fx-effect: dropshadow(gaussian, rgba(155, 0, 0, 0.85), 10, 0.6, 0, 0); /* Enhanced shadow effect */
+    -fx-background-color: rgba(20, 0, 0, 0.9); /* Darker background when focused */
 }
 
-/* Estilos para el ComboBox (Curso) */
-
+/* Defines the base style for ComboBox components */
 .combo-box {
-    -fx-background-color: rgba(0, 0, 0, 0.75);
-    -fx-border-color: #9b0000;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-font-size: 13pt;
-    -fx-text-fill: #9b0000;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0);
-    -fx-cursor: hand;
+    -fx-background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent dark background */
+    -fx-border-color: #9b0000; /* Dark red border color */
+    -fx-border-width: 2px; /* Border width of 2 pixels */
+    -fx-border-radius: 5px; /* Rounded border corners */
+    -fx-font-size: 13pt; /* Font size of 13 points */
+    -fx-text-fill: #9b0000; /* Dark red text color */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.9), 3, 0.0, 0, 0); /* Minimal shadow effect */
+    -fx-cursor: hand; /* Hand cursor on hover */
 }
 
+/* Styles the arrow in the ComboBox */
 .combo-box .arrow-button .arrow {
-    -fx-background-color: #9b0000;
+    -fx-background-color: #9b0000; /* Dark red arrow color */
 }
 
+/* Styles the ComboBox list cells */
 .combo-box .list-cell {
-    -fx-text-fill: #9b0000;
-    -fx-background-color: rgba(0, 0, 0, 0.85);
+    -fx-text-fill: #9b0000; /* Dark red text color */
+    -fx-background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent dark background */
 }
 
+/* Styles the ComboBox popup list view */
 .combo-box-popup .list-view {
-    -fx-background-color: rgba(0, 0, 0, 0.92);
-    -fx-border-color: #9b0000;
-    -fx-border-width: 1px;
+    -fx-background-color: rgba(0, 0, 0, 0.92); /* Darker semi-transparent background */
+    -fx-border-color: #9b0000; /* Dark red border color */
+    -fx-border-width: 1px; /* Border width of 1 pixel */
 }
 
+/* Styles the ComboBox list cells on hover */
 .combo-box-popup .list-view .list-cell:hover {
-    -fx-background-color: rgba(155, 0, 0, 0.35);
-    -fx-text-fill: #9b0000;
+    -fx-background-color: rgba(155, 0, 0, 0.35); /* Semi-transparent red background on hover */
+    -fx-text-fill: #9b0000; /* Dark red text color */
 }
 
-/* Estilos para el Button (Botón de Acción - Peligro) */
+/* Defines the base style for Button components */
 .button {
-    -fx-background-color: rgba(20, 0, 0, 0.7);
-    -fx-border-color: #9b0000;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-text-fill: #9b0000;
-    -fx-font-family: "Consolas Bold";
-    -fx-font-size: 14pt;
-    -fx-font-weight: normal;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(155, 0, 0, 0.3), 6, 0.3, 0, 0);
-    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out;
+    -fx-background-color: rgba(20, 0, 0, 0.7); /* Semi-transparent dark background */
+    -fx-border-color: #9b0000; /* Dark red border color */
+    -fx-border-width: 2px; /* Border width of 2 pixels */
+    -fx-border-radius: 5px; /* Rounded border corners */
+    -fx-text-fill: #9b0000; /* Dark red text color */
+    -fx-font-family: "Consolas Bold"; /* Sets font to Consolas Bold */
+    -fx-font-size: 14pt; /* Font size of 14 points */
+    -fx-font-weight: normal; /* Normal font weight */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(gaussian, rgba(155, 0, 0, 0.3), 6, 0.3, 0, 0); /* Subtle shadow effect */
+    -fx-transition: -fx-border-color 0.3s ease-out, -fx-background-color 0.3s ease-out, -fx-effect 0.3s ease-out; /* Smooth transition for border, background, and effect */
 }
 
+/* Defines the style for Button on hover */
 .button:hover {
-    -fx-background-color: rgba(70, 0, 0, 0.8);
-    -fx-border-color: #c00000;
-    -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.6), 14, 0.6, 0, 0);
+    -fx-background-color: rgba(70, 0, 0, 0.8); /* Brighter semi-transparent background */
+    -fx-border-color: #c00000; /* Brighter red border color */
+    -fx-effect: dropshadow(gaussian, rgba(200, 0, 0, 0.6), 14, 0.6, 0, 0); /* Enhanced shadow effect */
 }
 
-/* TextField y ComboBox */
+/* Overrides styles for TextField and ComboBox */
 .text-field, .combo-box {
-    -fx-text-fill: #a04040;
-    -fx-background-color: rgba(0, 0, 0, 0.7);
-    -fx-border-color: #a04040;
-    -fx-border-width: 2px;
-    -fx-border-radius: 5px;
-    -fx-font-family: "Consolas Bold";
+    -fx-text-fill: #a04040; /* Slightly lighter red text color */
+    -fx-background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    -fx-border-color: #a04040; /* Slightly lighter red border color */
+    -fx-border-width: 2px; /* Border width of 2 pixels */
+    -fx-border-radius: 5px; /* Rounded border corners */
+    -fx-font-family: "Consolas Bold"; /* Sets font to Consolas Bold */
 }
