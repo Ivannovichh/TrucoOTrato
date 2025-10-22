@@ -58,7 +58,7 @@ TrucoOTrato es un proyecto desarrollado por Ivannovichh que combina creatividad,
 
 ### Ruleta
 ![Ruleta](Rouleta.png)  
-> Captura de la ruleta girando, mostrando premios y penalizaciones.
+> Captura de la ruleta.
 
 ### Carta de productos
 ![Inicio Sesion](InicioSesion.png)  
