@@ -57,11 +57,11 @@ TrucoOTrato es un proyecto desarrollado por Ivannovichh que combina creatividad,
 ## 📸 Capturas de pantalla
 
 ### Ruleta
-![Ruleta](docs/ruleta.png)  
+![Ruleta](Rouleta.png)  
 > Captura de la ruleta girando, mostrando premios y penalizaciones.
 
 ### Carta de productos
-![Carta de productos](docs/carta.png)  
+![Inicio Sesion](InicioSesion.png)  
 > Ejemplo de carta con productos y botones interactivos en la UI.
 
 > **Nota:** Sustituye estas imágenes por capturas reales de tu aplicación.
