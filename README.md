@@ -135,12 +135,6 @@ git checkout -b feature/nueva-funcionalidad
 
 ---
 
-## 📜 Licencia
-
-MIT License.
-
----
-
 ## 💬 Autor
 
 Iván Sánchez Juárez  
