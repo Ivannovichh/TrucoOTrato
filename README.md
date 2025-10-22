@@ -1,72 +1,112 @@
 # 🎃 TrucoOTrato
 
-**TrucoOTrato** es un proyecto desarrollado por [Ivannovichh](https://github.com/Ivannovichh) que combina creatividad, lógica y diversión en una experiencia única.  
-Su propósito principal es ofrecer una base sólida para el desarrollo de aplicaciones interactivas, con un enfoque en la gestión, automatización o gamificación de “trucos” y “tratos” entre usuarios o elementos del sistema.
+TrucoOTrato es un proyecto desarrollado por Ivannovichh que combina creatividad, lógica y diversión en una experiencia única. Su objetivo principal es ofrecer una base sólida para el desarrollo de aplicaciones interactivas centradas en la gestión, automatización o gamificación de “trucos” y “tratos” entre usuarios o elementos del sistema.
 
 ---
 
 ## 🧩 Contenido del repositorio
 
-El repositorio incluye:
-
-- 🧠 **Código fuente** principal en `src/`
-- ⚙️ **Gestor de dependencias Maven** (`pom.xml`, `mvnw`, `mvnw.cmd`, `.mvn/`)
-- 🧾 **Archivo `.gitignore`** con reglas para evitar subir archivos innecesarios
-- 💡 **Recursos adicionales** (CSS, imágenes, vistas, scripts, etc., según la versión)
-- 🧪 **Pruebas y configuraciones** opcionales para futuras expansiones
+- **Código fuente principal** en `src/`
+- **Gestor de dependencias Maven** (`pom.xml`, `mvnw`, `mvnw.cmd`, `.mvn/`)
+- **Recursos**: CSS, imágenes, vistas, scripts
+- **Pruebas unitarias** para validar la funcionalidad
+- **Documentación adicional** (este README)
 
 ---
 
-## 🎯 ¿Para qué sirve?
+## 🎯 Funcionalidades principales
 
-Este proyecto sirve como ejemplo o base para:
-- Desarrollar una aplicación o juego que gestione interacciones tipo “Truco o Trato”.
-- Aprender y practicar conceptos de programación en **Java**.
-- Utilizar **Maven** para automatizar la compilación, ejecución y empaquetado del proyecto.
-- Integrar estilos, interfaces y lógicas de negocio en un entorno modular y mantenible.
+### Clases principales
+
+- **`Ruleta.java`**  
+  Implementa la ruleta del juego para asignar premios o penalizaciones.  
+  **Métodos importantes:**  
+  - `girarRuleta()`
+  - `asignarPremio(int resultado)`
+  - `mostrarRuleta()`
+
+- **`CartaProductos.java`**  
+  Gestiona productos y colecciones de cartas.  
+  **Métodos importantes:**  
+  - `agregarProducto(Producto p)`
+  - `eliminarProducto(Producto p)`
+  - `obtenerProductos()`
+  - `mostrarCarta()`
+
+- **`Temp.java`**  
+  Simula cartas con diseño estático y botones de interacción.  
+  **Métodos importantes:**  
+  - `crearCartaSimulada()`
+  - `actualizarCarta()`
+  - `botonInteraccion()`
+
+- **`Juego.java`**  
+  Contiene la lógica principal del juego y la interacción entre jugadores.
+
+- **`Producto.java`**  
+  Representa un producto individual en las cartas.
+
+- **`Utils.java`**  
+  Métodos auxiliares para cálculos, sorteos y conversiones.
+
+- **`MainApp.java`**  
+  Punto de entrada principal del proyecto (JavaFX, consola o Spring Boot).
+
+---
+
+## 📸 Capturas de pantalla
+
+### Ruleta
+![Ruleta](docs/ruleta.png)  
+> Captura de la ruleta girando, mostrando premios y penalizaciones.
+
+### Carta de productos
+![Carta de productos](docs/carta.png)  
+> Ejemplo de carta con productos y botones interactivos en la UI.
+
+> **Nota:** Sustituye estas imágenes por capturas reales de tu aplicación.
 
 ---
 
 ## 🧰 Tecnologías utilizadas
 
-| Tecnología | Propósito |
-|-------------|------------|
-| **Java** | Lenguaje de programación principal |
-| **Maven** | Gestión del proyecto y dependencias |
-| **CSS** | Diseño visual de la interfaz |
-| **Git & GitHub** | Control de versiones y colaboración |
-| **JavaFX / Swing / Spring Boot** | Si se usa interfaz o backend en el proyecto |
+| Tecnología           | Propósito                                             |
+|----------------------|-------------------------------------------------------|
+| Java                 | Lenguaje de programación principal                    |
+| Maven                | Gestión del proyecto y dependencias                   |
+| CSS                  | Diseño visual de la interfaz                          |
+| Git & GitHub         | Control de versiones y colaboración                   |
+| JavaFX / Swing / Spring Boot | Interfaz de usuario y backend (según implementación) |
 
 ---
 
 ## 🚀 Cómo clonar y ejecutar el proyecto
 
-Sigue estos pasos para traer el proyecto a tu máquina local:
+```bash
+git clone https://github.com/Ivannovichh/TrucoOTrato.git
+cd TrucoOTrato
+```
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/Ivannovichh/TrucoOTrato.git
-   ```
+### Compilar dependencias
+- Linux/Mac:
+```bash
+./mvnw clean install
+```
+- Windows:
+```bash
+mvnw.cmd clean install
+```
 
-2. **Entrar al directorio del proyecto:**
-   ```bash
-   cd TrucoOTrato
-   ```
+### Ejecutar proyecto
+- Spring Boot:
+```bash
+./mvnw spring-boot:run
+```
+- JavaFX / Consola: comando según configuración.
 
-3. **Compilar e instalar dependencias:**
-   ```bash
-   ./mvnw clean install    # En Linux/Mac
-   mvnw.cmd clean install  # En Windows
-   ```
-
-4. **Ejecutar el proyecto:**
-   ```bash
-   ./mvnw spring-boot:run   # o el comando equivalente si es una app JavaFX o de consola
-   ```
-
-5. **Abrir la aplicación:**
-   - Si es una aplicación web, accede desde tu navegador a [http://localhost:8080](http://localhost:8080)
-   - Si es de escritorio, se abrirá la interfaz directamente.
+### Abrir la aplicación
+- Web: [http://localhost:8080](http://localhost:8080)
+- Escritorio: se abrirá la interfaz automáticamente.
 
 ---
 
@@ -74,43 +114,47 @@ Sigue estos pasos para traer el proyecto a tu máquina local:
 
 ```
 TrucoOTrato/
-│
-├── src/
-│   ├── main/java/        # Código fuente Java
-│   ├── main/resources/   # Archivos de configuración y recursos
-│   └── test/java/        # (Opcional) pruebas unitarias
-│
-├── pom.xml               # Configuración del proyecto Maven
-├── mvnw / mvnw.cmd       # Ejecutores de Maven multiplataforma
-├── .mvn/                 # Configuración interna del wrapper de Maven
-└── .gitignore            # Archivos que se excluyen del control de versiones
+├── docs/
+│   ├── ruleta.png
+│   └── carta.png
+├── src/main/java/
+│   ├── MainApp.java
+│   ├── Juego.java
+│   ├── Ruleta.java
+│   ├── CartaProductos.java
+│   ├── Temp.java
+│   ├── Producto.java
+│   └── Utils.java
+├── src/main/resources/  # CSS, imágenes, vistas
+├── src/test/java/       # Pruebas unitarias
+├── pom.xml
+├── mvnw / mvnw.cmd
+├── .mvn/
+└── .gitignore
 ```
 
 ---
 
 ## 🧑‍💻 Cómo contribuir
 
-¿Quieres mejorar **TrucoOTrato**?  
-Sigue estos pasos:
-
-1. Haz un **fork** del repositorio  
-2. Crea una nueva rama para tus cambios  
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-3. Realiza tus mejoras o correcciones  
-4. Envía un **Pull Request** con una descripción clara de lo que aportas  
+1. Haz un fork del repositorio.
+2. Crea una nueva rama:
+```bash
+git checkout -b feature/nueva-funcionalidad
+```
+3. Realiza cambios o mejoras.
+4. Envía un Pull Request con descripción clara.
 
 ---
 
 ## 📜 Licencia
 
-Este proyecto está licenciado bajo la **Licencia MIT**, lo que significa que puedes usarlo, modificarlo y compartirlo libremente, siempre dando crédito al autor original.  
+MIT License.
 
 ---
 
 ## 💬 Autor
 
-**Iván Sánchez Juárez**  
+Iván Sánchez Juárez  
 GitHub: [@Ivannovichh](https://github.com/Ivannovichh)  
-Proyecto creado con 💻, 🎃 y ☕  
+Proyecto creado con 💻, 🎃 y ☕
