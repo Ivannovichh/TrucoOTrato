@@ -96,18 +96,6 @@ cd TrucoOTrato
 ```bash
 mvnw.cmd clean install
 ```
-
-### Ejecutar proyecto
-- Spring Boot:
-```bash
-./mvnw spring-boot:run
-```
-- JavaFX / Consola: comando según configuración.
-
-### Abrir la aplicación
-- Web: [http://localhost:8080](http://localhost:8080)
-- Escritorio: se abrirá la interfaz automáticamente.
-
 ---
 
 ## 📁 Estructura del proyecto
