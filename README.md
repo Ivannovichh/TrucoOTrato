@@ -65,6 +65,7 @@ cd TrucoOTrato
 ## 📁 Estructura del proyecto
 
 ```
+
 TrucoOTrato/
 ├── docs/
 │   ├── ruleta.png
@@ -81,6 +82,7 @@ TrucoOTrato/
 ├── mvnw / mvnw.cmd
 ├── .mvn/
 └── .gitignore
+
 ```
 
 ---
