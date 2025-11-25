@@ -1,56 +1,33 @@
 # 🎃 TrucoOTrato
 
-TrucoOTrato es un proyecto desarrollado por Ivannovichh que combina creatividad, lógica y diversión en una experiencia única. Su objetivo principal es ofrecer una base sólida para el desarrollo de aplicaciones interactivas centradas en la gestión, automatización o gamificación de “trucos” y “tratos” entre usuarios o elementos del sistema.
+TrucoOTrato es un proyecto que combina creatividad, lógica y diversión. Su objetivo principal es ofrecer una base sólida para el desarrollo de aplicaciones interactivas centradas en la gestión, automatización o gamificación de “trucos” y “tratos” entre usuarios o elementos del sistema.
 
 ---
 
 ## 🧩 Contenido del repositorio
 
-- **Código fuente principal** en `src/`
-- **Gestor de dependencias Maven** (`pom.xml`, `mvnw`, `mvnw.cmd`, `.mvn/`)
-- **Recursos**: CSS, imágenes, vistas, scripts
-- **Pruebas unitarias** para validar la funcionalidad
-- **Documentación adicional** (este README)
+- **Código fuente principal** en `src/` (Organizado en paquetes `Interface` y `Roulette`).
+- **Gestor de dependencias Maven** (`pom.xml`, `mvnw`, `mvnw.cmd`, `.mvn/`).
+- **Recursos** (CSS, imágenes, vistas, scripts) en `src/main/resources/`.
+- **Pruebas unitarias** en `src/test/java/`.
+- **Documentación adicional** (este README).
 
 ---
 
-## 🎯 Funcionalidades principales
+## 🎯 Funcionalidades y Clases principales
 
-### Clases principales
+El proyecto se estructura en paquetes funcionales, enfocados en la Interfaz de Usuario y la lógica de la Ruleta.
 
-- **`Ruleta.java`**  
-  Implementa la ruleta del juego para asignar premios o penalizaciones.  
-  **Métodos importantes:**  
-  - `girarRuleta()`
-  - `asignarPremio(int resultado)`
-  - `mostrarRuleta()`
+### Paquete `Roulette`
+Contiene la lógica y la representación visual de la ruleta del juego.
+- **`RouletteApp.java`**: Punto de entrada o control principal del módulo de la ruleta.
+- **`WheelView.java`**: Clase encargada de la visualización (vista) de la ruleta, gestionando su despliegue y posiblemente la animación de giro.
 
-- **`CartaProductos.java`**  
-  Gestiona productos y colecciones de cartas.  
-  **Métodos importantes:**  
-  - `agregarProducto(Producto p)`
-  - `eliminarProducto(Producto p)`
-  - `obtenerProductos()`
-  - `mostrarCarta()`
-
-- **`Temp.java`**  
-  Simula cartas con diseño estático y botones de interacción.  
-  **Métodos importantes:**  
-  - `crearCartaSimulada()`
-  - `actualizarCarta()`
-  - `botonInteraccion()`
-
-- **`Juego.java`**  
-  Contiene la lógica principal del juego y la interacción entre jugadores.
-
-- **`Producto.java`**  
-  Representa un producto individual en las cartas.
-
-- **`Utils.java`**  
-  Métodos auxiliares para cálculos, sorteos y conversiones.
-
-- **`MainApp.java`**  
-  Punto de entrada principal del proyecto (JavaFX, consola o Spring Boot).
+### Paquete `Interface`
+Contiene las clases principales de la Interfaz de Usuario, incluyendo el punto de entrada de la aplicación y controladores.
+- **`Launcher.java`**: La clase principal utilizada para iniciar la aplicación (común en aplicaciones JavaFX).
+- **`HelloApplication.java`**: La clase de aplicación base para la UI.
+- **`ControladorFormulario.java`**: Clase que gestiona la interacción del usuario con formularios o elementos específicos de la UI.
 
 ---
 
@@ -83,19 +60,8 @@ TrucoOTrato es un proyecto desarrollado por Ivannovichh que combina creatividad,
 ## 🚀 Cómo clonar y ejecutar el proyecto
 
 ```bash
-git clone https://github.com/Ivannovichh/TrucoOTrato.git
+git clone [https://github.com/Ivannovichh/TrucoOTrato.git](https://github.com/Ivannovichh/TrucoOTrato.git)
 cd TrucoOTrato
-```
-
-### Compilar dependencias
-- Linux/Mac:
-```bash
-./mvnw clean install
-```
-- Windows:
-```bash
-mvnw.cmd clean install
-```
 ---
 
 ## 📁 Estructura del proyecto
@@ -105,33 +71,19 @@ TrucoOTrato/
 ├── docs/
 │   ├── ruleta.png
 │   └── carta.png
-├── src/main/java/
-│   ├── MainApp.java
-│   ├── Juego.java
-│   ├── Ruleta.java
-│   ├── CartaProductos.java
-│   ├── Temp.java
-│   ├── Producto.java
-│   └── Utils.java
-├── src/main/resources/  # CSS, imágenes, vistas
-├── src/test/java/       # Pruebas unitarias
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── Interface/          # ControladorFormulario.java, HelloApplication.java, Launcher.java
+│   │   │   └── Roulette/           # RouletteApp.java, WheelView.java
+│   │   └── resources/  # CSS, imágenes, vistas, scripts
+│   └── test/
+│       └── java/       # Pruebas unitarias
 ├── pom.xml
 ├── mvnw / mvnw.cmd
 ├── .mvn/
 └── .gitignore
 ```
-
----
-
-## 🧑‍💻 Cómo contribuir
-
-1. Haz un fork del repositorio.
-2. Crea una nueva rama:
-```bash
-git checkout -b feature/nueva-funcionalidad
-```
-3. Realiza cambios o mejoras.
-4. Envía un Pull Request con descripción clara.
 
 ---
 
