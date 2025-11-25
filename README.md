@@ -44,11 +44,11 @@ Contiene las clases de la interfaz y controladores.
 
 ### Ruleta
 
-![Ruleta](docs/ruleta.png)
+![Ruleta](Rouleta.png)
 
 ### Inicio de sesión
 
-![Inicio Sesion](docs/InicioSesion.png)
+![Inicio Sesion](InicioSesion.png)
 
 ------------------------------------------------------------------------
 
