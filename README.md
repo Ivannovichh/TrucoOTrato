@@ -37,11 +37,9 @@ Contiene las clases principales de la Interfaz de Usuario, incluyendo el punto d
 ![Ruleta](Rouleta.png)  
 > Captura de la ruleta.
 
-### Carta de productos
+### Inicio de sesion
 ![Inicio Sesion](InicioSesion.png)  
-> Ejemplo de carta con productos y botones interactivos en la UI.
-
-> **Nota:** Sustituye estas imágenes por capturas reales de tu aplicación.
+> captura del inicio de sesión
 
 ---
 
