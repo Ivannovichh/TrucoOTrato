@@ -42,13 +42,15 @@ Contiene las clases de la interfaz y controladores.
 
 ## 📸 Capturas de pantalla
 
+### Inicio de sesión
+
+![Inicio Sesion](InicioSesion.png)
+
 ### Ruleta
 
 ![Ruleta](Rouleta.png)
 
-### Inicio de sesión
 
-![Inicio Sesion](InicioSesion.png)
 
 ------------------------------------------------------------------------
 
